@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./components/Home.page";
+import Nav from "./components/Nav";
+import RQSuperHeroPage from "./components/RQSuperHeroes.page";
+import SuperHeroesPage from "./components/Superheroes.page";
+import "./App.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/super-heroes" element={<SuperHeroesPage />} />
+        <Route path="/rq-super-heroes/:heroId" element={<RQSuperHeroPage />} />
+        <Route path="/rq-super-heroes" element={<RQSuperHeroPage />}></Route>
+        {/* <Route path='/rq-parallel'>
+      <ParallelQueriesPage />
+    </Route>
+    <Route path='/rq-dynamic-parallel'>
+      <DynamicParallelPage heroIds={[1, 3]} />
+    </Route>
+    <Route path='/rq-dependent'>
+      <DependentQueriesPage email='vishwas@example.com' />
+    </Route>
+    <Route path='/rq-paginated'>
+      <PaginatedQueriesPage />
+    </Route>
+    <Route path='/rq-infinite'>
+      <InfiniteQueriesPage />
+    </Route> */}
+      </Routes>
+    </>
   );
-}
+};
 
 export default App;
