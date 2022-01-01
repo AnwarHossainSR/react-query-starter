@@ -7,6 +7,7 @@ import SuperHeroesPage from "./components/Superheroes.page";
 import "./App.css";
 import { QueryClientProvider, QueryClient } from "react-query";
 import RQSUperheroPage from "./components/RQSUperhero.page";
+import { ReactQueryDevtools } from "react-query/devtools";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => {
       <InfiniteQueriesPage />
     </Route> */}
       </Routes>
+      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
     </QueryClientProvider>
   );
 };
